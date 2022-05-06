@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengfou.dao.LbNovelSectionDetailMapper">
+  <resultMap id="BaseResultMap" type="com.mengfou.entity.LbNovelSectionDetail">
+    <constructor>
+      <idArg column="identityId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sectionId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mengfou.entity.LbNovelSectionDetail">
+    <constructor>
+      <idArg column="identityId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sectionId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sectionDetail" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    identityId, id, sectionId
+  </sql>
+  <sql id="Blob_Column_List">
+    sectionDetail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from lbnovelsectiondetail
+    where identityId = #{identityid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByNovelIdAndSectionId" resultType="com.mengfou.entity.LbNovelSectionDetail">
+    select * from lbnovelsectiondetail
+    where id = #{bid} and sectionId = #{sid}
+  </select>
+
+  <select id="selectVaildNovelIdsInLbNovelSectionDetail" resultType="java.lang.String">
+    select distinct(id) from lbnovelsectiondetail
+  </select>
+  <select id="getNovelSectionNumber" resultType="java.lang.Integer">
+    select count(sectionid) from lbnovelsectiondetail where id=#{bid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lbnovelsectiondetail
+    where identityId = #{identityid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mengfou.entity.LbNovelSectionDetail">
+    insert into lbnovelsectiondetail (identityId, id, sectionId, 
+      sectionDetail)
+    values (#{identityid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, #{sectionid,jdbcType=INTEGER}, 
+      #{sectiondetail,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mengfou.entity.LbNovelSectionDetail">
+    insert into lbnovelsectiondetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="identityid != null">
+        identityId,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sectionid != null">
+        sectionId,
+      </if>
+      <if test="sectiondetail != null">
+        sectionDetail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="identityid != null">
+        #{identityid,jdbcType=INTEGER},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionid != null">
+        #{sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="sectiondetail != null">
+        #{sectiondetail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mengfou.entity.LbNovelSectionDetail">
+    update lbnovelsectiondetail
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionid != null">
+        sectionId = #{sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="sectiondetail != null">
+        sectionDetail = #{sectiondetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where identityId = #{identityid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mengfou.entity.LbNovelSectionDetail">
+    update lbnovelsectiondetail
+    set id = #{id,jdbcType=VARCHAR},
+      sectionId = #{sectionid,jdbcType=INTEGER},
+      sectionDetail = #{sectiondetail,jdbcType=LONGVARCHAR}
+    where identityId = #{identityid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mengfou.entity.LbNovelSectionDetail">
+    update lbnovelsectiondetail
+    set id = #{id,jdbcType=VARCHAR},
+      sectionId = #{sectionid,jdbcType=INTEGER}
+    where identityId = #{identityid,jdbcType=INTEGER}
+  </update>
+</mapper>

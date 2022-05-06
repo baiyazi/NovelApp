@@ -1,0 +1,21 @@
+server:
+  port: 9090
+  banner:
+    image:
+      location: classpath:banner.jpg
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/novel?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&verifyServerCertificate=false&autoReconnct=true&autoReconnectForPools=true&allowMultiQueries=true
+    username: root
+    password: 123456
+
+
+mybatis:
+  mapper-locations: classpath:mappers/*Mapper.xml
+
+
+localimage:
+  file-path: D:/novelimage/
+  access-path: /image/**

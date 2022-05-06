@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengfou.dao.LeaderBoardMapper">
+  <resultMap id="BaseResultMap" type="com.mengfou.entity.LeaderBoard">
+    <constructor>
+      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="catId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="catName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="picUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bookName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="authorName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bookDesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="score" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="wordCount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="lastIndexUpdateTime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="lastIndexId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="lastIndexName" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, catId, catName, picUrl, bookName, authorName, bookDesc, score, wordCount, lastIndexUpdateTime, 
+    lastIndexId, lastIndexName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from leaderboard
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+    <select id="selectByTurnPage" resultType="com.mengfou.entity.LeaderBoard" parameterType="int">
+      select * from leaderboard limit #{start},#{limit}
+    </select>
+  <select id="getNovelIds" resultType="java.lang.String">
+    select distinct(id) from leaderboard
+  </select>
+    <select id="getAllLeaderBoards" resultType="com.mengfou.entity.LeaderBoard">
+      select * from leaderboard
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from leaderboard
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mengfou.entity.LeaderBoard">
+    insert into leaderboard (id, catId, catName, 
+      picUrl, bookName, authorName, 
+      bookDesc, score, wordCount, 
+      lastIndexUpdateTime, lastIndexId, lastIndexName
+      )
+    values (#{id,jdbcType=VARCHAR}, #{catid,jdbcType=INTEGER}, #{catname,jdbcType=VARCHAR}, 
+      #{picurl,jdbcType=VARCHAR}, #{bookname,jdbcType=VARCHAR}, #{authorname,jdbcType=VARCHAR}, 
+      #{bookdesc,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, #{wordcount,jdbcType=VARCHAR}, 
+      #{lastindexupdatetime,jdbcType=VARCHAR}, #{lastindexid,jdbcType=VARCHAR}, #{lastindexname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mengfou.entity.LeaderBoard">
+    insert into leaderboard
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="catid != null">
+        catId,
+      </if>
+      <if test="catname != null">
+        catName,
+      </if>
+      <if test="picurl != null">
+        picUrl,
+      </if>
+      <if test="bookname != null">
+        bookName,
+      </if>
+      <if test="authorname != null">
+        authorName,
+      </if>
+      <if test="bookdesc != null">
+        bookDesc,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="wordcount != null">
+        wordCount,
+      </if>
+      <if test="lastindexupdatetime != null">
+        lastIndexUpdateTime,
+      </if>
+      <if test="lastindexid != null">
+        lastIndexId,
+      </if>
+      <if test="lastindexname != null">
+        lastIndexName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="catid != null">
+        #{catid,jdbcType=INTEGER},
+      </if>
+      <if test="catname != null">
+        #{catname,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null">
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bookname != null">
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="authorname != null">
+        #{authorname,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdesc != null">
+        #{bookdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="wordcount != null">
+        #{wordcount,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexupdatetime != null">
+        #{lastindexupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexid != null">
+        #{lastindexid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexname != null">
+        #{lastindexname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mengfou.entity.LeaderBoard">
+    update leaderboard
+    <set>
+      <if test="catid != null">
+        catId = #{catid,jdbcType=INTEGER},
+      </if>
+      <if test="catname != null">
+        catName = #{catname,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null">
+        picUrl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bookname != null">
+        bookName = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="authorname != null">
+        authorName = #{authorname,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdesc != null">
+        bookDesc = #{bookdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="wordcount != null">
+        wordCount = #{wordcount,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexupdatetime != null">
+        lastIndexUpdateTime = #{lastindexupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexid != null">
+        lastIndexId = #{lastindexid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastindexname != null">
+        lastIndexName = #{lastindexname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mengfou.entity.LeaderBoard">
+    update leaderboard
+    set catId = #{catid,jdbcType=INTEGER},
+      catName = #{catname,jdbcType=VARCHAR},
+      picUrl = #{picurl,jdbcType=VARCHAR},
+      bookName = #{bookname,jdbcType=VARCHAR},
+      authorName = #{authorname,jdbcType=VARCHAR},
+      bookDesc = #{bookdesc,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      wordCount = #{wordcount,jdbcType=VARCHAR},
+      lastIndexUpdateTime = #{lastindexupdatetime,jdbcType=VARCHAR},
+      lastIndexId = #{lastindexid,jdbcType=VARCHAR},
+      lastIndexName = #{lastindexname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
