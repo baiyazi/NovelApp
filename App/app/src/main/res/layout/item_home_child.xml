@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.mengfou.viewmodels.ItemChildViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> viewModel.onClick()}"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/novel_cover"
+            android:layout_width="75dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_cover"
+            android:transitionName="cover"
+            app:imageFromUrl="@{viewModel.novelDetail.picUrl}"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/novel_book_name"
+                style="@style/video_detail_main_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{viewModel.novelDetail.bookName}"
+                android:textSize="14sp"
+                tools:text="@string/book_name" />
+
+            <TextView
+                android:id="@+id/novel_description_text"
+                style="@style/video_detail_info_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.4"
+                android:maxLines="5"
+                android:text="@{viewModel.novelDetail.bookDesc}"
+                android:textSize="12sp"
+                tools:text="@string/simple_introduce" />
+
+            <LinearLayout
+                android:id="@+id/other_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/novel_authorName"
+                    style="@style/video_detail_secondary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.novelDetail.authorName}"
+                    android:textSize="12sp"
+                    tools:text="@string/author_name" />
+
+                <TextView
+                    android:id="@+id/novel_catName"
+                    style="@style/video_detail_secondary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@{viewModel.novelDetail.catName}"
+                    android:textSize="12sp"
+                    tools:text="@string/cat_name" />
+
+
+                <TextView
+                    android:id="@+id/novel_wordCount"
+                    style="@style/video_detail_secondary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@{viewModel.novelDetail.wordCount}"
+                    android:textSize="12sp"
+                    tools:text="@string/word_count" />
+
+                <TextView
+                    android:id="@+id/novel_lastIndexUpdateTime"
+                    style="@style/video_detail_secondary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@{viewModel.novelDetail.lastIndexUpdateTime}"
+                    android:textSize="12sp"
+                    tools:text="@string/last_update_time" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--表示组中的所有菜单项只能单选-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/identity"
+            android:iconTint="@color/white"
+            android:title="@string/item_first_button" />
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/github"
+            android:iconTint="@color/white"
+            android:title="@string/item_second_button" />
+    </group>
+</menu>

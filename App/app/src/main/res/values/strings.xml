@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hello_home_fragment">Home fragment</string>
+    <string name="hello_detail_fragment">Detail fragment</string>
+    <string name="hello_section_fragment">Section fragment</string>
+    <string name="item_first_button">梦否</string>
+    <string name="item_second_button">https://github.com/baiyazi</string>
+    <string name="hello_zhangsan">张三</string>
+    <string name="app_name_book">小说阅读器</string>
+    <string name="app_name_book_simple">简易版</string>
+    <string name="test_swipe_refresh_layout">测试下拉刷新</string>
+    <string name="NOVEL_WUXIAXIANXIA">武侠仙侠</string>
+    <string name="NOVEL_LISHIJUNSHI">历史军事</string>
+    <string name="NOVEL_KEHUANLINGYI">科幻灵异</string>
+    <string name="NOVEL_WANGYOUJINGJI">网游竞技</string>
+    <string name="NOVEL_QIHUANXUANHUAN">玄幻奇幻</string>
+    <string name="NOVEL_DUSHIYANQING">都市言情</string>
+
+
+    <string name="simple_introduce">简介</string>
+    <string name="book_name">书名</string>
+    <string name="author_name">作者</string>
+    <string name="cat_name">类别</string>
+    <string name="word_count">字数</string>
+    <string name="last_update_time">最近更新</string>
+
+    <string name="id">小&#160;&#160;&#160;说&#160;&#160;&#160;标&#160;&#160;&#160;识</string>
+    <string name="catId">小说类别标识</string>
+    <string name="catName">小&#160;&#160;&#160;说&#160;&#160;&#160;类&#160;&#160;&#160;别</string>
+    <string name="picUrl">小&#160;说&#160;封&#160;面&#160;图</string>
+    <string name="bookName">小&#160;&#160;&#160;说&#160;&#160;&#160;书&#160;&#160;&#160;名</string>
+    <string name="authorName">小&#160;&#160;&#160;说&#160;&#160;&#160;作&#160;&#160;&#160;者</string>
+    <string name="bookDesc">小&#160;&#160;&#160;说&#160;&#160;&#160;描&#160;&#160;&#160;述</string>
+    <string name="score">评&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;分</string>
+    <string name="wordCount">字&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
+    <string name="lastIndexUpdateTime">最近更新时间</string>
+    <string name="lastIndexId">最新章节标识</string>
+    <string name="lastIndexName">最&#160;新&#160;章&#160;节&#160;名</string>
+
+
+    <string name="home_load_error">数据加载失败\n下拉刷新试试吧!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
