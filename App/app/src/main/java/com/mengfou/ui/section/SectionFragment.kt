@@ -10,18 +10,16 @@ import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
-import androidx.navigation.Navigation
 import com.mengfou.R
 import com.mengfou.databinding.FragmentSectionBinding
 import com.mengfou.entity.NovelDetail
 import com.mengfou.repository.DetailRepository
 import com.mengfou.ui.detail.DetailFragment
-import com.mengfou.utils.ActivityJumpUtil
 import com.mengfou.utils.HTMLGenerator
 import com.mengfou.viewmodels.HomeFragmentViewModel
+import com.mengfou.views.HorizontalPopupLayout
+import com.mengfou.views.IHorizontalPopupLayoutItemClickListener
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
-import java.lang.StringBuilder
 
 
 class SectionFragment : Fragment() {
@@ -30,6 +28,7 @@ class SectionFragment : Fragment() {
     private var novelType: HomeFragmentViewModel.NovelType? = null
     private var novelDetail: NovelDetail? = null
     private var currentSectionId: Int = 1  // 小说章节编号从1开始
+    private lateinit var horizontalPopupLayout: HorizontalPopupLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +62,22 @@ class SectionFragment : Fragment() {
                 webViewClient = WebViewClient()
                 loadDataWithBaseURL(null, html, "text/html", "utf-8", null)
             }
+            fab.setOnClickListener(fabOnClickListener)
+            this@SectionFragment.horizontalPopupLayout = this.horizontalPopupLayout
+        }
+    }
+
+    val fabOnClickListener = object : View.OnClickListener {
+        override fun onClick(view: View?) {
+            // todo 这里应该是startActivityForResult
+            // ActivityJumpUtil.jumpToContentActivity(this@SectionFragment, novelDetail!!)
+            horizontalPopupLayout.openView()
+            horizontalPopupLayout.setOnItemClickListener(object :
+                IHorizontalPopupLayoutItemClickListener {
+                override fun onItemClick(itemId: Int) {
+                    Log.e("TAG", "SectionFragment => onItemClick: ${itemId}" )
+                }
+            })
         }
     }
 

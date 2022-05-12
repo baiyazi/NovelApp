@@ -15,14 +15,18 @@
     <string name="NOVEL_WANGYOUJINGJI">网游竞技</string>
     <string name="NOVEL_QIHUANXUANHUAN">玄幻奇幻</string>
     <string name="NOVEL_DUSHIYANQING">都市言情</string>
-
-
     <string name="simple_introduce">简介</string>
     <string name="book_name">书名</string>
     <string name="author_name">作者</string>
     <string name="cat_name">类别</string>
     <string name="word_count">字数</string>
     <string name="last_update_time">最近更新</string>
+
+    <string name="content_novel_book_name">星辰变</string>
+    <string name="content_novel_author_name">我吃西红柿</string>
+    <string name="content_title_1">第一章</string>
+    <string name="content_title_2">第一章</string>
+    <string name="content_title_3">第一章</string>
 
     <string name="id">小&#160;&#160;&#160;说&#160;&#160;&#160;标&#160;&#160;&#160;识</string>
     <string name="catId">小说类别标识</string>

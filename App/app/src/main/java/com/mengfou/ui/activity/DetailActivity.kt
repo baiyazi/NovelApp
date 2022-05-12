@@ -1,4 +1,4 @@
-package com.mengfou.ui
+package com.mengfou.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
