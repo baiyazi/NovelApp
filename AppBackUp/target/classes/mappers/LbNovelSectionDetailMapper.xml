@@ -41,6 +41,12 @@
   <select id="getNovelSectionNumber" resultType="java.lang.Integer">
     select count(sectionid) from lbnovelsectiondetail where id=#{bid}
   </select>
+    <select id="getVaildNovelsCategory" resultType="java.lang.String">
+      select distinct(catname) from  leaderboard where id in (select distinct(id) from lbnovelsectiondetail)
+    </select>
+  <select id="getVaildNovelsCategoryDetail" resultType="java.lang.String">
+    select * from  leaderboard where id in (select distinct(id) from lbnovelsectiondetail ) and catname = #{category}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from lbnovelsectiondetail
     where identityId = #{identityid,jdbcType=INTEGER}

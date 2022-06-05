@@ -35,6 +35,4 @@ public class DownloadNovelImageController {
         return "forward:/image/" + md5 + ".jpg";
     }
 
-
-
 }
