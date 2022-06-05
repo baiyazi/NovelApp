@@ -1,0 +1,48 @@
+.header{
+    height: 60px;
+    width: 100%;
+    background: #1890FF;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    display: flex;
+}
+.header-author, .header-logo {
+    flex: 1;
+}
+.header-logo{
+    font-weight: bold;
+}
+.header-author{
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.header-author a{
+    text-decoration: none;
+    color: white;
+}
+.header-right{
+    flex: 3;
+    display: flex;
+}
+.header-right div{
+    flex: 1;
+    font-size: 1rem;
+}
+.header-right div a{
+    text-decoration: none;
+    color: white;
+}
+
+.header-right div:first-child{
+    flex: 3;
+}
+.header-right div:nth-child(2){
+    text-align: right;
+}
+.header-right div:last-child{
+    margin-left: 16px;
+    text-align: left;
+}

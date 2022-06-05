@@ -1,0 +1,7 @@
+.main-container{
+    height: calc(100vh - 62px);
+    overflow: auto;
+    margin-left: 262px;
+    margin-top: 2px;
+    padding: 10px;
+}
